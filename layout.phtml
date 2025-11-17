@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .chat{
+            background-color: antiquewhite;
+            padding: 70px;
+            font-size: 35px;
+            margin-bottom: 12px;
+            border-radius: 0px 0px 0px 25px;
+        }
+        input{
+            width: 300px;
+            height: 40px;
+            border: solid ;
+            border-radius: 7px;
+            box-shadow: 5px,5px,5px,whitesmoke;
+    
+        }
+        .submitButton{
+            padding: 12px;
+            width: 70px;
+            height: 35px;
+            border: none;
+            background-color: blue;
+            border-radius: 25px;
+            color: white;
+        }
+
+        a{
+            text-decoration: none;
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+   <div class="main">
+        <p>CHAT</p>
+        <div>
+            <?php foreach($data as $val): ?>
+                <div class="chat"><?php echo $val["message"] ?> 
+                <a href="index.php?id=<?=$val['Id']?>">Delete</a>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <form action="index.php" method="post">
+                <input type="text" placeholder="Ecrire ton message ici" name="message">
+                <input type="submit" class="submitButton" name="submit" value="Envoyer">
+        </form>
+   </div>
+    
+</body>
+</html>
